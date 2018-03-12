@@ -342,7 +342,9 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
                 .addConstructorArgValue(service)
                 // References "ref" property to annotated-@Service Bean
                 .addPropertyReference("ref", annotatedServiceBeanName)
-                .addPropertyValue("interfaceClass", interfaceClass);
+                // Replace Deprecated method "interfaceClass"
+//                .addPropertyValue("interfaceClass", interfaceClass)
+                .addPropertyValue("interface", interfaceClass.getName());
 
         /**
          * Add {@link com.alibaba.dubbo.config.ProviderConfig} Bean reference
